@@ -1,21 +1,25 @@
-const emailList = ['mail@1.com', 'mail@2.it', 'mail@3.net', 'miamail@io.it'];
+const emailList = ['mail@1.com', 'mail@2.it','miamail@io.it', 'mail@3.net'];
 
 const userEmail = prompt('Inserisci la tua email');
-
+let mailTrovata = false;
+let message = 'ACCESSO NEGATO'
 
 for(let i = 0; i < emailList.length; i++){
   const email = emailList[i];
-  console.log(email);
+  console.log(email)
 
-  if(userEmail == email){
-    document.querySelector('h1').innerHTML = `
-    Accesso eseguito ${emailList[i]}`
-  }else{
-    document.querySelector('h1').innerHTML = `
-    La tua mail non è valida`;
+  if(email === userEmail){
+    mailTrovata = true
+    // document.querySelector('h1').innerHTML = `
+    // Accesso eseguito ${emailList[i]}`
   }
 }
 
+if (mailTrovata) {
+  message = 'ACCESSO CONSENTITO'
+}
+
+document.querySelector('h1').innerHTML = message;
 
 
 
